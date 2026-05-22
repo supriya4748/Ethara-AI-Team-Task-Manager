@@ -9,10 +9,10 @@ The application provides secure authentication, role-based access control, proje
 ## Live Demo
 
 **Frontend URL:**
-`Add your Railway frontend URL here`
+`ethara-ai-team-task-manager-production-e5ab.up.railway.app`
 
 **Backend API URL:**
-`Add your Railway backend URL here`
+`ethara-ai-task-manager-production-2159.up.railway.app`
 
 ---
 
