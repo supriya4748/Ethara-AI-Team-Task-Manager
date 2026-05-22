@@ -1,80 +1,334 @@
 # Ethara AI Team Task Manager
 
-A full-stack premium Team Task Manager designed with high aesthetic standards, robust type-safety, and a modern clean architecture.
+Ethara AI Team Task Manager is a full-stack team collaboration and task management platform designed for modern teams to organize projects, assign tasks, track progress, and manage workflows efficiently.
 
-## Tech Stack
-
-- **Frontend**: React + Vite + TypeScript + Tailwind CSS
-- **Backend**: Node.js + Express + TypeScript
-- **Database**: PostgreSQL (Prisma ORM)
-- **Authentication**: JSON Web Tokens (JWT) + bcryptjs
-- **Validation**: Zod
-- **Deployment**: Railway Ready
+The application provides secure authentication, role-based access control, project management, task assignment, progress tracking, overdue monitoring, and a premium responsive user interface.
 
 ---
 
-## Directory Structure
+## Live Demo
 
-```text
-ethara-ai-task-manager/
-├── backend/                  # Express + Node.js + TS Backend
-│   ├── prisma/               # Database schemas & migrations
-│   │   └── schema.prisma     # Prisma data models
-│   ├── src/
-│   │   ├── config/           # Database, environment configurations
-│   │   ├── controllers/      # Route request controllers
-│   │   ├── middlewares/      # Error handler, JWT guard, Zod validator
-│   │   ├── routes/           # Routing layers (auth, tasks, projects)
-│   │   ├── services/         # Core business logic layer
-│   │   ├── utils/            # Helper utilities (logger, tokens)
-│   │   ├── validators/       # Input validation schemas
-│   │   └── server.ts         # App entrypoint
-│   ├── .env.example          # Environment template
-│   ├── tsconfig.json         # TS Compiler options
-│   └── package.json          # Dependency management
+**Frontend URL:**
+`Add your Railway frontend URL here`
+
+**Backend API URL:**
+`Add your Railway backend URL here`
+
+---
+
+# Features
+
+## Authentication & Security
+
+* User Signup & Login
+* JWT-based Authentication
+* Password Hashing using bcrypt
+* Protected Routes
+* Session Persistence
+* Automatic Unauthorized Session Handling
+
+---
+
+## Role-Based Access Control (RBAC)
+
+### Admin
+
+* Create Projects
+* Update Projects
+* Delete Projects
+* Create Tasks
+* Assign Tasks to Members
+* Manage Team Workflow
+
+### Member
+
+* View Assigned Projects
+* Update Task Status
+* Track Work Progress
+
+---
+
+## Project Management
+
+* Create and Manage Projects
+* Project Description Support
+* Project Ownership Tracking
+* Responsive Project Dashboard
+
+---
+
+## Task Management
+
+* Create Tasks
+* Assign Tasks to Team Members
+* Task Priorities
+
+  * Low
+  * Medium
+  * High
+* Task Status Workflow
+
+  * Todo
+  * In Progress
+  * Review
+  * Done
+* Due Date Management
+* Overdue Task Detection
+
+---
+
+## Dashboard & Analytics
+
+* Task Statistics
+* Overdue Task Indicators
+* Real-Time Status Updates
+* Workspace Overview
+
+---
+
+## UI & User Experience
+
+* Modern Dark-Themed Interface
+* Responsive Design
+* Toast Notifications
+* Keyboard Accessibility
+* Modal Close Handling
+* Loading States
+* Smooth User Experience
+
+---
+
+# Tech Stack
+
+## Frontend
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* React Router
+* Context API
+
+## Backend
+
+* Node.js
+* Express.js
+* TypeScript
+* Prisma ORM
+* PostgreSQL
+
+## Database
+
+* Neon PostgreSQL
+
+## Deployment
+
+* Railway
+
+---
+
+# Folder Structure
+
+```bash
+Ethara-AI-Team-Task-Manager/
 │
-├── frontend/                 # React + Vite + TS Frontend
+├── backend/
+│   ├── prisma/
 │   ├── src/
-│   │   ├── assets/           # Global styles, images, and brand files
-│   │   ├── components/       # Shared UI components (button, card, sidebar)
-│   │   ├── context/          # State managers (AuthContext, etc.)
-│   │   ├── layouts/          # Layout wrappers (DashboardLayout, AuthLayout)
-│   │   ├── pages/            # View components (Dashboard, Login, Signup)
-│   │   ├── routes/           # React Router mappings and route guards
-│   │   ├── services/         # Axios API service layers
-│   │   ├── App.tsx           # Global container and routing shell
-│   │   └── main.tsx          # React application mount
-│   ├── .env.example          # Frontend env variables
-│   ├── tailwind.config.js    # Tailwind configuration
-│   ├── tsconfig.json         # TS compiler setup
-│   └── package.json          # Dependency management
-└── README.md                 # Project starter documentation
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middlewares/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   ├── validators/
+│   │   └── server.ts
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── layouts/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── App.tsx
+│
+└── README.md
 ```
 
 ---
 
-## Getting Started
+# Environment Variables
 
-### Prerequisites
+## Backend `.env`
 
-- Node.js (v18+)
-- PostgreSQL Database instance
+```env
+PORT=5000
+NODE_ENV=production
 
-### Setup & Installation
+DATABASE_URL=your_neon_database_url
 
-Detailed startup and migration guides will be populated in subsequent phases.
-For Phase 0 verification:
+JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=7d
 
-1. **Backend Build**:
-   ```bash
-   cd backend
-   npm install
-   npm run build
-   ```
+CLIENT_URL=your_frontend_url
+```
 
-2. **Frontend Build**:
-   ```bash
-   cd frontend
-   npm install
-   npm run build
-   ```
+---
+
+## Frontend `.env`
+
+```env
+VITE_API_URL=your_backend_url/api
+```
+
+---
+
+# Installation & Setup
+
+## Clone Repository
+
+```bash
+git clone https://github.com/your-username/Ethara-AI-Team-Task-Manager.git
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+npm install
+```
+
+### Run Prisma Migration
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+### Start Backend
+
+```bash
+npm run dev
+```
+
+Backend runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+```
+
+### Start Frontend
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+# Production Deployment
+
+## Frontend Deployment
+
+* Railway
+* Root Directory: `frontend`
+
+## Backend Deployment
+
+* Railway
+* Root Directory: `backend`
+
+## Database
+
+* Neon PostgreSQL
+
+---
+
+# API Endpoints
+
+## Authentication
+
+```http
+POST /api/auth/signup
+POST /api/auth/login
+GET  /api/auth/me
+```
+
+---
+
+## Projects
+
+```http
+GET    /api/projects
+POST   /api/projects
+PUT    /api/projects/:id
+DELETE /api/projects/:id
+```
+
+---
+
+## Tasks
+
+```http
+GET    /api/tasks
+POST   /api/tasks
+PATCH  /api/tasks/:id/status
+PUT    /api/tasks/:id
+DELETE /api/tasks/:id
+```
+
+---
+
+# Validation & Security
+
+* Zod Request Validation
+* JWT Verification Middleware
+* Protected API Routes
+* Role Authorization Middleware
+* Secure Password Hashing
+* Environment Variable Protection
+
+---
+
+# Future Improvements
+
+* Team Invitations
+* File Upload Support
+* Activity Logs
+* Email Notifications
+* Real-Time Collaboration
+* Kanban Board View
+* Search & Filtering Enhancements
+
+---
+
+# Author
+
+**Supriya Mishra**
+
+GitHub:
+`https://github.com/supriya4748`
+
+---
+
+# License
+
+This project is developed for educational, portfolio, and assessment purposes.
